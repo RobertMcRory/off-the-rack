@@ -5,6 +5,13 @@ class StaticPagesController < ApplicationController
   def catalog
   end
   
-  def login
+  def profile
   end
+  
+  def about
+  end
+  
+  def contact
+  end
+  
 end

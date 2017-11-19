@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-
-
 git_source(:github) do |repo_name|
 
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -9,12 +7,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 
 end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.2'
-
-#boostrap
+#Devise Gem
+gem 'devise', '4.3.0'
+#bootstrap
 gem 'bootstrap-sass', '3.3.7'
-
 # Use Puma as the app server
 gem 'puma', '3.9.1'
 # Use SCSS for stylesheets
