@@ -9,4 +9,11 @@ class UserController < ActionController
   end
   
   #protect_from_forgery with: :exception
+  
+  
+  def admin_login
+    flash[:notice]="Admin login successful"
+  end
+  
+  
 end

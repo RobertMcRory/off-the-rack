@@ -1,18 +1,7 @@
-<p id="notice"><%= notice %></p>
-
- <div id="first-column">
-         
-         <div class="searchbox">
-           <h2 class="boxheader">Search</h2>
-         </div
-
-       </div>
-
-<h1>Catalog</h1>
-
-<table>
-
-    <% @products.each do |product| %>
+<h1>Category</h1>
+<table class="catalog">
+    
+ <% @products.each do |product| %>
       <tr>
         <td>
         <div class ="image"><%= link_to (image_tag product.image_url, :style => "height:300px"), product %></div>
@@ -32,10 +21,5 @@
         </td>
       </tr>
     <% end %>
+    
 </table>
-
-<br>
-<% if session[:login] == 1 %>
-<p><%= link_to 'New Product', new_product_path %></p>
-<% end %>
-

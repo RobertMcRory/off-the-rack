@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
+  
   def main
+    @categories = Category.all
   end
 
   def catalog
@@ -12,6 +14,14 @@ class StaticPagesController < ApplicationController
   end
   
   def contact
+  end
+  
+  def admin
+  end
+  
+  def category
+    st = '%'+  params[:title] + '%'
+    @products = Product.where("title like ?", st)
   end
   
 end
