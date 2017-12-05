@@ -1,0 +1,18 @@
+
+
+
+<div class ="UserProfile" style="text-align: center">
+    <div>
+    <h1><%= full_name %></h1>
+    <h4> <strong>Username:</strong> <%= @user.username %></h4>
+    <h4> <strong>Birthday:</strong> <%= @user.birthday %></h4>
+    <h4> <strong>About:</strong> <%= @user.about %></h4>
+    </div>
+    
+    <% if user_signed_in? %>
+    <%= link_to 'Edit profile', edit_user_registration_path %>
+    <% else %>
+    <h6>You must be signed in to edit your profile</h6>
+    <%= link_to 'Home', root_path %>
+    <% end %>
+</div>

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :categories
   get 'cart/index'
 
+  devise_for :users
   resources :products
   resources :users
-  devise_for :users
   
 root 'static_pages#main'    
 
@@ -15,7 +15,7 @@ root 'static_pages#main'
   
   get '/profile', to: 'static_pages#profile'
   
-  get 'users/:id' => 'users#show'
+  #get '/users/:id' => 'users#show'
   
   get '/about', to: 'static_pages#about'
   

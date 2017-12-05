@@ -1,38 +1,45 @@
 <p id="notice"><%= notice %></p>
 
- <div id="first-column">
-         
-         <div class="searchbox">
-           <h2 class="boxheader">Search</h2>
+  <div id="second-column">
+         <div class="menubox">
+          <a href="/category/women"><h6>WOMEN</h6></a>
          </div
+ </div>
+   <div id="second-column">
+         <div class="menubox">
+          <a href="/category/men"><h6>MEN</h6></a>
+         </div
+ </div>  <div id="second-column">
+         <div class="menubox">
+          <a href="/category/kids"><h6>KIDS</h6></a>
+         </div
+ </div>
+  <div id="first-column">
+         <div class="searchbox">
+            <%= form_tag products_path, :method => 'get' do %>
+              <p>
+                <%= text_field_tag :term, params[:term] %>
+                <%= submit_tag "Search" %>
+              </p>
+            <% end %>
+         </div
+ </div>
+ 
+       
+<div><h1>Catalog</h1></div>
 
-       </div>
-
-<h1>Catalog</h1>
-
-<table>
-
-    <% @products.each do |product| %>
-      <tr>
-        <td>
-        <div class ="image"><%= link_to (image_tag product.image_url, :style => "height:300px"), product %></div>
-        <div class="title"><%= link_to product.title, product %></div>
-        <div class="description"><%= product.description %></div>
-        <div class="brand"><%= link_to product.brand, product %></div>
-        <div class="price"><%= number_to_currency(product.price, :unit => "€") %></div>
-        <div class="links">
-          <% if session[:login] ==1 %>
-            <%= link_to 'Edit', edit_product_path(product) %>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-           <%else%>
-            <a href="/cart/<%= product.id %>">Add to Cart</a>
-            <%= link_to 'Show', product %>
-          <%end%>  
-        </div>
-        </td>
-      </tr>
-    <% end %>
-</table>
+<% @products.each do |product| %>
+<div class="divTable">
+<div class="divproduct">
+<div class="image"><%= link_to (image_tag product.image_url, :style => "height:300px"), product %></div>
+<div class="title"><%= link_to product.title, product %></div>
+<div class="description"><%= product.description %></div>
+<div class="brand"><%= link_to product.brand, product %></div>
+<div class="price"><%= number_to_currency(product.price, :unit => "€") %></div>
+<div class="links"><% if session[:login] ==1 %> <%= link_to 'Edit', edit_product_path(product) %> <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %> <%else%> <a href="/cart/<%= product.id %>">Add to Cart</a> <%= link_to 'Show', product %> <%end%></div>
+</div>
+</div>
+<% end %>
 
 <br>
 <% if session[:login] == 1 %>

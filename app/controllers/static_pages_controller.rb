@@ -20,7 +20,7 @@ class StaticPagesController < ApplicationController
   end
   
   def category
-    st = '%'+  params[:title] + '%'
+    st = params[:title] + '%'
     @products = Product.where("title like ?", st)
   end
   
